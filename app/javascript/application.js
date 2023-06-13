@@ -1,12 +1,16 @@
-// Entry point for the build script in your package.json
-import ReactDOM from 'react-dom';
-import "./controllers";
+import * as React from "react";
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import App from "./components/App";
+import { store } from "./redux/store";
 
-function App() {
-  return (<h1>Hello World!</h1>);
-}
+const root = createRoot(document.getElementById("root"));
 
-ReactDOM.render(
-  <App/>,
-  document.getElementById('root'),
+root.render(
+  <BrowserRouter>
+  <Provider store={store}>
+    <App/>
+    </Provider>
+  </BrowserRouter>
 );
